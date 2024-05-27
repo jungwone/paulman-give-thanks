@@ -19,7 +19,18 @@ export default async function Index() {
 
   return (
     <div>
-      <div>paulman gamsa</div>
+      {/* <div>paulman gamsa</div> */}
+      <div>
+        하나님이 또 아름다운 하루를 선물해주셨습니다. 정말 잊을 수 없는
+        날입니다. 저는 배가 고프지만 배가 고프지 않다고 할 수 있습니다.
+        <br />
+        <br />
+        God has given us another beautiful day as a gift. It's an unforgettable
+        day. I'm hungry, but I can say I'm not hungry. Do you understand what I
+        mean?
+      </div>
+      <br />
+      <br />
       <Button variant={"default"}>버튼</Button>
     </div>
   );

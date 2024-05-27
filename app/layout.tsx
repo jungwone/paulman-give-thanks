@@ -1,4 +1,4 @@
-import { Noto_Sans_KR } from "next/font/google";
+import { IBM_Plex_Sans_KR } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
@@ -13,12 +13,7 @@ export const metadata = {
   description: "산본교회 바울청년부(폴맨)의 감사 노트 웹사이트입니다.",
 };
 
-// const sunflower = Sunflower({
-//   subsets: ["latin"],
-//   weight: ["300", "500", "700"],
-// });
-
-const notoSans = Noto_Sans_KR({
+const ibmPlexFont = IBM_Plex_Sans_KR({
   subsets: ["latin"],
   weight: ["300", "500", "700"],
 });
@@ -29,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={notoSans.className} suppressHydrationWarning>
+    <html lang="ko" className={ibmPlexFont.className} suppressHydrationWarning>
       <body>
         <ThemeProvider
           attribute="class"
