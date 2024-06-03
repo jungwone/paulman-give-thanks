@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import ModeToggle from "./toggle-theme";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { Pencil } from "lucide-react";
 
 export default async function Navbar() {
@@ -17,11 +17,20 @@ export default async function Navbar() {
         폴맨's 감사노트
       </Link>
       <div className="gap-2 flex items-center">
-        <Link href={"/write"}>
-          <Button variant={"outline"} size={"icon"}>
-            <Pencil className="size-[1.2rem]" />
-          </Button>
-        </Link>
+        {user ? (
+          <Link href={"/write"}>
+            <Button variant={"outline"} size={"icon"}>
+              <Pencil className="size-[1.2rem]" />
+            </Button>
+          </Link>
+        ) : (
+          <Link
+            className={buttonVariants({ variant: "outline" })}
+            href={"/auth"}
+          >
+            로그인
+          </Link>
+        )}
 
         <ModeToggle />
       </div>

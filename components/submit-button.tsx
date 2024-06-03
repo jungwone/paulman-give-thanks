@@ -20,20 +20,3 @@ const SubmitButton = forwardRef<HTMLButtonElement, ButtonProps>(
 SubmitButton.displayName = "SubmitButton";
 
 export default SubmitButton;
-
-// const SubmitButton = forwardRef<HTMLButtonElement, ButtonProps>({ children, ...props }: Props) {
-//   const { pending, action } = useFormStatus();
-
-//   const isPending = pending && action === props.formAction;
-
-//   return (
-//     <Button
-//       disabled={isPending}
-//       formAction={props.formAction}
-//       className={props.className}
-//       variant={}
-//     >
-//       {isPending ? <Loader className="animate-spin" /> : children}
-//     </Button>
-//   );
-// }
