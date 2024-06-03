@@ -16,6 +16,29 @@ export const signInWithGoogle = async () => {
   if (data.url) {
     redirect(data.url);
   }
+
+  if (error) {
+    redirect("/auth?message=could not authenticate user");
+  }
+};
+
+export const signInWithKakoTalk = async () => {
+  const client = createClient();
+  const { data, error } = await client.auth.signInWithOAuth({
+    provider: "kakao",
+    options: {
+      redirectTo: process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO,
+      scopes: "",
+    },
+  });
+
+  if (data.url) {
+    redirect(data.url);
+  }
+
+  if (error) {
+    redirect("/auth?message=could not authenticate user");
+  }
 };
 
 export async function signInWithEmail(formData: FormData) {

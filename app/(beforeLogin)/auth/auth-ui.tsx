@@ -3,7 +3,7 @@
 import SubmitButton from "@/components/submit-button";
 import GoogleIcon from "@/icons/google-lcon";
 import KakaoIcon from "@/icons/kakao-icon";
-import { signInWithGoogle } from "./action";
+import { signInWithGoogle, signInWithKakoTalk } from "./action";
 
 export default function AuthUI() {
   return (
@@ -16,7 +16,7 @@ export default function AuthUI() {
           구글로 시작하기
         </SubmitButton>
 
-        <SubmitButton variant={"outline"}>
+        <SubmitButton variant={"outline"} formAction={signInWithKakoTalk}>
           <span className="mr-3">
             <KakaoIcon />
           </span>
