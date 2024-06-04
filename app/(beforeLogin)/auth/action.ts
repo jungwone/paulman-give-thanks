@@ -28,7 +28,6 @@ export const signInWithKakoTalk = async () => {
     provider: "kakao",
     options: {
       redirectTo: process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO,
-      scopes: "",
     },
   });
 
