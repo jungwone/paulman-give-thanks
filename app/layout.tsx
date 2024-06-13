@@ -2,6 +2,7 @@ import { IBM_Plex_Sans_KR } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
+import QueryProvider from "@/components/query-client-provider";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -32,12 +33,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-screen-lg mx-auto px-4 md:px-5">
-            <Navbar />
-            <main className="min-h-screen flex flex-col items-center">
-              {children}
-            </main>
-          </div>
+          <QueryProvider>
+            <div className="max-w-screen-lg mx-auto px-4 md:px-5">
+              <Navbar />
+              <main className="min-h-screen flex flex-col items-center">
+                {children}
+              </main>
+            </div>
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>
