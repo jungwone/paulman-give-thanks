@@ -5,5 +5,7 @@
  * @returns string with '...'
  */
 export function sliceTextWithPeriods(text: string, length: number) {
-  return `${text.slice(0, length)}...`;
+  const sliced = text.slice(0, length);
+
+  return text.length > 120 ? `${sliced}...` : sliced;
 }
