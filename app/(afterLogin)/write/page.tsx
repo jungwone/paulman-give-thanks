@@ -14,10 +14,7 @@ export default function Page() {
   return (
     <div className="py-12 w-full flex flex-col items-center">
       <h1 className="mb-12">감사하자!</h1>
-      <form
-        action={formAction}
-        className="max-w-screen-sm w-full flex flex-col gap-4"
-      >
+      <form className="max-w-screen-sm w-full flex flex-col gap-4">
         <div className="grid w-full items-center gap-1.5">
           <Label htmlFor="title">제목</Label>
           <Input id="title" name="title" type="text" />
@@ -58,7 +55,7 @@ export default function Page() {
         </div>
 
         <div className="flex justify-end">
-          <SubmitButton>완료</SubmitButton>
+          <SubmitButton formAction={formAction}>완료</SubmitButton>
         </div>
       </form>
     </div>
