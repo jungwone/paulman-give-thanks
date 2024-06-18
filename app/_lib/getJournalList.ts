@@ -9,7 +9,7 @@ export async function fetchJournals({ pageParam, client }: Props) {
 
   const { data } = await client
     .from("thanks")
-    .select("id, title, content, created_at, profiles(username)")
+    .select("id, title, content, created_at, profiles(id, username)")
     .eq("is_hidden", false)
     .range(from, to);
 

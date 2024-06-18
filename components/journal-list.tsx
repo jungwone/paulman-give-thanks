@@ -8,6 +8,7 @@ import { useInView } from "react-intersection-observer";
 import JournalCard from "./journal-card";
 import { ITEMS_PER_PAGE } from "@/constants";
 import { fetchJournals } from "@/app/_lib/getJournalList";
+import styles from "./journal-list.module.css";
 
 export default function JournalList() {
   const client = useSupabaseBrowser();
@@ -39,14 +40,20 @@ export default function JournalList() {
 
   return (
     <>
-      <div className="flex gap-x-8 gap-y-8 flex-wrap pt-16">
-        {data?.pages.map((page, index) => (
+      {/* <div className="flex gap-x-8 gap-y-8 flex-wrap pt-16"> */}
+      <div className={styles["list-wrapper"]}>
+        {data?.pages
+          .flatMap((page) => page)
+          .map((journal) => (
+            <JournalCard key={journal.id} {...journal} />
+          ))}
+        {/* {data?.pages.map((page, index) => (
           <Fragment key={index}>
             {page.map((journal) => (
               <JournalCard key={journal.id} {...journal} />
             ))}
           </Fragment>
-        ))}
+        ))} */}
       </div>
 
       {/* 무한스크롤 용도 div */}

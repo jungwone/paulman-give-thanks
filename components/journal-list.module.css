@@ -1,0 +1,10 @@
+.list-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(384px, 384px));
+  row-gap: 32px;
+  column-gap: 32px;
+  justify-content: center;
+  padding-top: 64px;
+}
+
+/* width: 384px */
