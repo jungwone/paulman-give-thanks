@@ -1,3 +1,10 @@
-import { Database } from "./supabase";
-
-export type Journal = Database["public"]["Tables"]["thanks"]["Row"];
+export type JournalType = {
+  id: string;
+  title: string;
+  content: string;
+  created_at: string;
+  profiles: {
+    id: string;
+    username: string | null;
+  } | null;
+};

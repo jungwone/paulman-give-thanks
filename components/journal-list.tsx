@@ -1,9 +1,9 @@
 "use client";
 
 import useSupabaseBrowser from "@/hooks/useSupabaseBrowser";
-import { Journal } from "@/types/journal";
+import { JournalType } from "@/types/journal";
 import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import JournalCard from "./journal-card";
 import { ITEMS_PER_PAGE } from "@/constants";
@@ -13,9 +13,9 @@ export default function JournalList() {
   const client = useSupabaseBrowser();
 
   const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery<
-    Journal[],
+    JournalType[],
     Object,
-    InfiniteData<Journal[]>,
+    InfiniteData<JournalType[]>,
     [_1: string],
     number
   >({

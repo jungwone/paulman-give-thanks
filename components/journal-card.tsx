@@ -1,7 +1,7 @@
-import { Journal } from "@/types/journal";
+import { JournalType } from "@/types/journal";
 import { sliceTextWithPeriods } from "@/utils/utils";
 
-export default function JournalCard({ title, content }: Journal) {
+export default function JournalCard({ title, content }: JournalType) {
   return (
     <div className="bg-yellow-100 p-4 rounded-lg text-black w-96 h-52 shadow-xl">
       <section className="text-base font-bold mb-2 text-ellipsis overflow-hidden text-nowrap">
