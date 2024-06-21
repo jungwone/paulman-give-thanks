@@ -1,9 +1,19 @@
 import { ITEMS_PER_PAGE } from "@/constants";
 import { TypedSupabaseClient } from "@/types/types";
 
-type Props = { pageParam: number; client: TypedSupabaseClient };
+type Props = {
+  pageParam: number;
+  client: TypedSupabaseClient;
+  startDate: string;
+  endDate: string;
+};
 
-export async function fetchJournals({ pageParam, client }: Props) {
+export async function fetchJournals({
+  pageParam,
+  client,
+  startDate,
+  endDate,
+}: Props) {
   const from = pageParam * ITEMS_PER_PAGE;
   const to = from + ITEMS_PER_PAGE - 1;
 
@@ -11,9 +21,9 @@ export async function fetchJournals({ pageParam, client }: Props) {
     .from("thanks")
     .select("id, title, content, created_at, profiles(id, username)")
     .eq("is_hidden", false)
-    .range(from, to);
-
-  // .lte("created_at", "2024-06-14");
+    .range(from, to)
+    .gte("created_at", startDate)
+    .lte("created_at", endDate);
 
   return data || [];
 }
